@@ -2,11 +2,13 @@
 import { useRouter } from "next/navigation";
 import { ShimmerButton } from "@/components/ui/shimmer-button"
 import { MaskedAvatars } from "@/components/cli-footer/footer"
+import { Button } from "@/components/ui/catchme-button"
 export default function contribution() {
   const router = useRouter();
     
   
   return (
+    <>
 <div className="mx-auto w-full h-full flex align-middle justify-center p-30">  
 
   
@@ -41,10 +43,16 @@ onClick={() => router.push("/contribution")}
   flipFrom="top"
   > cli-footer</ShimmerButton>
 <br/>
-
-
+<br/>
+<ShimmerButton 
+  onClick={() => router.push("/catchme-button")}
+  flipContent="Flipped!"
+  flipFrom="top"
+  > catch-me button </ShimmerButton>
+<br/>
+ 
 </div> 
 
-
+</>
 )
 }
