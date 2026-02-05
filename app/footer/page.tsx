@@ -1,7 +1,7 @@
 //note - use inside layout.tsx at bottom after <children> and other attributes
 "use client";
 
-import { MaskedAvatars } from "@/components/cli-footer/footer";
+import { MaskedAvatars } from "@/components/cta-footer/footer";
 
 
 export default function MaskedAvatarsDemo() {

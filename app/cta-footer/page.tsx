@@ -38,8 +38,8 @@ export default function RootLayout({
 */
 "use client";
 
-import { MaskedAvatars } from "@/components/cli-footer/footer";
-import { AnimatedTestimonials } from "@/components/cli-footer/testimonials";
+import { MaskedAvatars } from "@/components/cta-footer/footer";
+import { AnimatedTestimonials } from "@/components/cta-footer/testimonials";
 
 export default function MaskedAvatarsDemo() {
     const avatars = [

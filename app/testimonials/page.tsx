@@ -1,4 +1,4 @@
-import { AnimatedTestimonials } from "@/components/cli-footer/testimonials";
+import { AnimatedTestimonials } from "@/components/cta-footer/testimonials";
 
 export default function AnimatedTestimonialsDemo() {
   const testimonials = [
