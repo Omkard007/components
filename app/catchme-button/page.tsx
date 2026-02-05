@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/catchme-button";
+import { Button } from "@/components/catchmebutton/catchme-button";
 
 export default function CatchMeButton() {
   return (

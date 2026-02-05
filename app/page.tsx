@@ -1,8 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { ShimmerButton } from "@/components/ui/shimmer-button"
-import { MaskedAvatars } from "@/components/cli-footer/footer"
-import { Button } from "@/components/ui/catchme-button"
+import { ShimmerButton } from "@/components/flip-button/flip-button"
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/accordion/accordion";
 export default function contribution() {
   const router = useRouter();
     
@@ -49,10 +48,14 @@ onClick={() => router.push("/contribution")}
   flipContent="Flipped!"
   flipFrom="top"
   > catch-me button </ShimmerButton>
+  <ShimmerButton 
+  onClick={() => router.push("/accordion")}
+  flipContent="Flipped!"
+  flipFrom="top"
+  > accordion </ShimmerButton>
 <br/>
  
-</div> 
-
+</div>
 </>
 )
 }

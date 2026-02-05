@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { ShimmerButton } from "@/components/ui/shimmer-button"
+import { ShimmerButton } from "@/components/flip-button/flip-button"
 export default function contribution() {
   const router = useRouter();
 

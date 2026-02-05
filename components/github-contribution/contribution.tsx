@@ -4,7 +4,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger
-} from "@/components/ui/tooltip";
+} from "@/components/github-contribution/tooltip";
 
 import { HTMLAttributes, ReactNode } from "react";
 

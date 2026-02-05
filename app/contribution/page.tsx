@@ -1,6 +1,6 @@
 import { Heatmap, 
     type HeatmapData
-  } from "@/components/ui/heatmap";
+  } from "@/components/github-contribution/contribution";
   import { useMemo } from "react";
   
   function generateRandomHeatmapData(
