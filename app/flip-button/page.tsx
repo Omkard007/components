@@ -1,16 +1,13 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { ShimmerButton } from "@/components/flip-button/flip-button"
+import { FlipButton } from "@/components/flip-button/flip-button"
 export default function contribution() {
-  const router = useRouter();
-
   return (
 <div className="mx-auto w-full h-full flex align-middle justify-center p-30">  
 
-<ShimmerButton 
+<FlipButton 
   flipContent="Flipped!"
   flipFrom="top"
-  > Contribution</ShimmerButton>
+  > Contribution</FlipButton>
   
 </div> 
 )

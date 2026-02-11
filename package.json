@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@base-ui-components/react": "1.0.0-rc.0",
+    "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-slot": "^1.2.4",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
@@ -20,6 +21,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.31.0",
     "lucide-react": "^0.563.0",
+    "matter-js": "^0.20.0",
     "motion": "^12.31.0",
     "next": "16.1.6",
     "radix-ui": "^1.4.3",
@@ -32,6 +34,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/matter-js": "^0.20.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

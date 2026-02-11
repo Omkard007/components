@@ -1,19 +1,23 @@
+"use client"
+
 import React, { CSSProperties, useEffect } from "react"
 import { motion, HTMLMotionProps } from "motion/react"
 
-import { cn } from "@/lib/utils"
+function cn(...classes: (string | undefined | null | false)[]) {
+    return classes.filter(Boolean).join(" ")
+}
 
 // Inject animations into the document
-const injectShimmerAnimations = () => {
+const injectFlipAnimations = () => {
   if (typeof document === 'undefined') return;
   
-  const styleId = 'shimmer-animations-styles';
+  const styleId = 'Flip-animations-styles';
   if (document.getElementById(styleId)) return;
 
   const style = document.createElement('style');
   style.id = styleId;
   style.textContent = `
-    @keyframes shimmer-slide {
+    @keyframes Flip-slide {
       to {
         transform: translate(calc(100cqw - 100%), 0);
       }
@@ -34,8 +38,8 @@ const injectShimmerAnimations = () => {
       }
     }
 
-    .animate-shimmer-slide {
-      animation: shimmer-slide var(--speed, 3s) ease-in-out infinite alternate;
+    .animate-Flip-slide {
+      animation: Flip-slide var(--speed, 3s) ease-in-out infinite alternate;
     }
 
     .animate-spin-around {
@@ -45,11 +49,11 @@ const injectShimmerAnimations = () => {
   document.head.appendChild(style);
 };
 
-interface ShimmerButtonProps extends Omit<HTMLMotionProps<"button">, 'style'> {
-  shimmerColor?: string
-  shimmerSize?: string
+interface FlipButtonProps extends Omit<HTMLMotionProps<"button">, 'style'> {
+  FlipColor?: string
+  FlipSize?: string
   borderRadius?: string
-  shimmerDuration?: string
+  FlipDuration?:string
   background?: string
   className?: string
   children?: React.ReactNode
@@ -80,12 +84,12 @@ const buildVariant = ({
   ...(!isVertical && offset !== null ? { x: offset } : {}),
 })
 
-const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
+const FlipButton = React.forwardRef<HTMLButtonElement, FlipButtonProps>(
   (props, ref) => {
     const {
-      shimmerColor = "#ffffff",
-      shimmerSize = "0.05em",
-      shimmerDuration = "3s",
+      FlipColor = "#ffffff",
+      FlipSize = "0.05em",
+      FlipDuration = "3s",
       borderRadius = "100px",
       background = "rgba(0, 0, 0, 1)",
       className,
@@ -101,7 +105,7 @@ const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
 
     // Inject animations on mount
     useEffect(() => {
-      injectShimmerAnimations();
+      injectFlipAnimations();
     }, []);
 
     const isVertical = flipFrom === 'top' || flipFrom === 'bottom'
@@ -153,16 +157,16 @@ const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
 
     const buttonStyle: CSSProperties = {
       "--spread": "90deg",
-      "--shimmer-color": shimmerColor,
+      "--flip-color": FlipColor,
       "--radius": borderRadius,
-      "--speed": shimmerDuration,
-      "--cut": shimmerSize,
+      "--speed": FlipDuration,
+      "--cut": FlipSize,
       "--bg": background,
       "--flip-bg": flipBackground,
       ...style,
     } as CSSProperties
 
-    // If no flip content, render regular shimmer button
+    // If no flip content, render regular Flip button
     if (!flipContent) {
       return (
         <button
@@ -182,8 +186,8 @@ const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
               "@container-[size] absolute inset-0 overflow-visible"
             )}
           >
-            <div className="animate-shimmer-slide absolute inset-0 aspect-[1] h-[100cqh] rounded-none [mask:none]">
-              <div className="animate-spin-around absolute -inset-full w-auto [translate:0_0] rotate-0 [background:conic-gradient(from_calc(270deg-(var(--spread)*0.5)),transparent_0,var(--shimmer-color)_var(--spread),transparent_var(--spread))]" />
+            <div className="animate-Flip-slide absolute inset-0 aspect-[1] h-[100cqh] rounded-none [mask:none]">
+              <div className="animate-spin-around absolute -inset-full w-auto [translate:0_0] rotate-0 [background:conic-gradient(from_calc(270deg-(var(--spread)*0.5)),transparent_0,var(--Flip-color)_var(--spread),transparent_var(--spread))]" />
             </div>
           </div>
           {children}
@@ -209,7 +213,7 @@ const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
       )
     }
 
-    // Render flip button with shimmer effect
+    // Render flip button with Flip effect
     return (
       <motion.button
         initial="initial"
@@ -257,8 +261,8 @@ const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
           }}
           transition={transition}
         >
-          <div className="animate-shimmer-slide absolute inset-0 aspect-[1] h-[100cqh] rounded-none [mask:none]">
-            <div className="animate-spin-around absolute -inset-full w-auto [translate:0_0] rotate-0 [background:conic-gradient(from_calc(270deg-(var(--spread)*0.5)),transparent_0,var(--shimmer-color)_var(--spread),transparent_var(--spread))]" />
+          <div className="animate-Flip-slide absolute inset-0 aspect-[1] h-[100cqh] rounded-none [mask:none]">
+            <div className="animate-spin-around absolute -inset-full w-auto [translate:0_0] rotate-0 [background:conic-gradient(from_calc(270deg-(var(--spread)*0.5)),transparent_0,var(--Flip-color)_var(--spread),transparent_var(--spread))]" />
           </div>
         </motion.div>
 
@@ -325,6 +329,6 @@ const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
   }
 )
 
-ShimmerButton.displayName = "ShimmerButton"
+FlipButton.displayName = "FlipButton"
 
-export { ShimmerButton, type ShimmerButtonProps }
+export { FlipButton, type FlipButtonProps }

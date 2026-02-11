@@ -5,7 +5,9 @@ import { ChevronDownIcon } from "lucide-react"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react"
 
-import { cn } from "@/lib/utils"
+function cn(...classes: (string | undefined | null | false)[]) {
+    return classes.filter(Boolean).join(" ")
+}
 
 const Accordion = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Root>,
